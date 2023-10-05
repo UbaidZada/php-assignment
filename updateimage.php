@@ -65,6 +65,8 @@ if($imagesize > 5000000){
     unlink("image/".$data['image']);
     move_uploaded_file($imageTempname,"image/".$uniquename);
 
+    header('location:viewimage.php');
+
 }
     
 }
@@ -79,7 +81,7 @@ if($imagesize > 5000000){
     <title>Images Upload</title>
 </head>
 <body>
-    <form action="<?php echo $_SERVER['PHP_SELF']?>" method = "post" enctype = "multipart/form-data">
+    <form action="<?php $_SERVER['PHP_SELF']?>" method = "post" enctype = "multipart/form-data">
 
 <label for="">Product Name</label>
 <input type="text" name = "productname" value="<?= $data['name'] ?>">

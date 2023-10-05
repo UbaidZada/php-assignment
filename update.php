@@ -4,6 +4,7 @@
 <?php
 
 $id = $_GET['id']; 
+// echo $id;
 
 $sqlfetch = "SELECT * from product WHERE product_id = :id";
 
@@ -26,6 +27,8 @@ if(empty($productName) || empty($productdesc) || empty($productprice)){
 echo "<script> alert('Please Fill All The Fields ') </script>";
 
 }else{
+
+    echo $id;
 
     $updatequery = "UPDATE `product` SET `product_name`= :productName,
     `product_desc`= :productdesc,`product_price`= :productprice  WHERE product_id = :id";
@@ -66,7 +69,7 @@ echo "<script> alert('Please Fill All The Fields ') </script>";
 <body>
     <h1 class="text-center my-5" >Update Products</h1>
 <div class="container">
-    <form action="<?php echo $_SERVER['PHP_SELF']?>" method = "post" class = "form-group">
+    <form action="<?php $_SERVER['PHP_SELF'] ?>" method = "post" class = "form-group">
 
 <label for=""> Product Name</label>
 <input type="text" value = "<?php echo $data['product_name'] ?>" name = "productName" id = "" class = "form-control"> <br>
